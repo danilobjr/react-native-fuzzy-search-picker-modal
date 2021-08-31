@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import { TextProps, Text } from 'react-native'
-import { useTheme } from './CountryTheme'
+import { useTheme } from './Theme'
 
-export const CountryText = (props: TextProps & { children: ReactNode }) => {
+export const ItemText = (props: TextProps & { children: ReactNode }) => {
   const { fontFamily, fontSize, onBackgroundTextColor } = useTheme()
   return (
     <Text

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { TextInput, StyleSheet, TextInputProps, Platform } from 'react-native'
-import { useTheme } from './CountryTheme'
+import { useTheme } from './Theme'
+
+const verticalHackyAlign = 4
 
 const styles = StyleSheet.create({
   input: {
-    height: 48,
-    width: '70%',
+    paddingTop: verticalHackyAlign,
     ...Platform.select({
       web: {
         outlineWidth: 0,
@@ -16,30 +17,35 @@ const styles = StyleSheet.create({
   },
 })
 
-export type CountryFilterProps = TextInputProps
+export type InputSearchProps = TextInputProps
 
-export const CountryFilter = (props: CountryFilterProps) => {
+export const InputSearch: FC<InputSearchProps> = props => {
   const {
     filterPlaceholderTextColor,
     fontFamily,
     fontSize,
     onBackgroundTextColor,
   } = useTheme()
+
   return (
     <TextInput
-      testID='text-input-country-filter'
+      testID='text-input-search'
       autoCorrect={false}
       placeholderTextColor={filterPlaceholderTextColor}
       style={[
         styles.input,
-        { fontFamily, fontSize, color: onBackgroundTextColor },
+        {
+          fontFamily,
+          fontSize,
+          color: onBackgroundTextColor,
+        },
       ]}
       {...props}
     />
   )
 }
 
-CountryFilter.defaultProps = {
+InputSearch.defaultProps = {
   autoFocus: false,
-  placeholder: 'Enter country name',
+  placeholder: 'Search',
 }

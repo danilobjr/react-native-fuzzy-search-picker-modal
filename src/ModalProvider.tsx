@@ -1,27 +1,25 @@
 import * as React from 'react'
 
-export interface CountryModalContextParam {
+export interface ModalContextParam {
   gate?: React.ReactNode
   teleport?(element: React.ReactNode): void
 }
 
-export const CountryModalContext = React.createContext<
-  CountryModalContextParam
->({
+export const ModalContext = React.createContext<ModalContextParam>({
   gate: undefined,
   teleport: undefined,
 })
 
-interface CountryModalProvider {
+interface ModalProvider {
   children: React.ReactNode
 }
-export const CountryModalProvider = ({ children }: CountryModalProvider) => {
+export const ModalProvider = ({ children }: ModalProvider) => {
   const [gate, setGate] = React.useState<React.ReactNode>(undefined)
   const teleport = (element: React.ReactNode) => setGate(element)
   return (
-    <CountryModalContext.Provider value={{ gate, teleport }}>
+    <ModalContext.Provider value={{ gate, teleport }}>
       {children}
       {gate}
-    </CountryModalContext.Provider>
+    </ModalContext.Provider>
   )
 }

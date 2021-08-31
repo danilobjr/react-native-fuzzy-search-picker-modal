@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "country-picker-example",
-    "description": "Expo Country Picker Example",
-    "slug": "country-picker-example",
+    "name": "modal-picker-example",
+    "description": "Expo Modal Picker Example",
+    "slug": "modal-picker-example",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": ["ios", "android", "web"],

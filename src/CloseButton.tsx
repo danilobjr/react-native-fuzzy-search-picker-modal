@@ -9,23 +9,22 @@ import {
   ViewStyle,
   ImageSourcePropType,
   ImageStyle,
-  StyleSheet
+  StyleSheet,
 } from 'react-native'
 import PropTypes from 'prop-types'
-import { useTheme } from './CountryTheme'
+import { useTheme } from './Theme'
 
 const styles = StyleSheet.create({
   container: {
-    height: 48,
-    width: '15%',
+    width: 56,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   imageStyle: {
     height: 25,
     width: 25,
-    resizeMode: 'contain'
-  }
+    resizeMode: 'contain',
+  },
 })
 
 interface CloseButtonProps {
@@ -58,7 +57,7 @@ const CloseButtonAndroid = (props: CloseButtonProps) => {
             style={[
               styles.imageStyle,
               props.imageStyle,
-              { tintColor: onBackgroundTextColor }
+              { tintColor: onBackgroundTextColor },
             ]}
           />
         </View>
@@ -82,7 +81,7 @@ const CloseButtonIOS = (props: CloseButtonProps) => {
           style={[
             styles.imageStyle,
             props.imageStyle,
-            { tintColor: onBackgroundTextColor }
+            { tintColor: onBackgroundTextColor },
           ]}
         />
       </TouchableOpacity>
@@ -92,7 +91,7 @@ const CloseButtonIOS = (props: CloseButtonProps) => {
 
 const propTypes = {
   onPress: PropTypes.func,
-  image: PropTypes.any
+  image: PropTypes.any,
 }
 CloseButtonIOS.prototype = propTypes
 CloseButtonAndroid.prototype = propTypes
@@ -100,5 +99,5 @@ CloseButtonAndroid.prototype = propTypes
 export default Platform.select({
   ios: CloseButtonIOS,
   android: CloseButtonAndroid,
-  web: CloseButtonIOS
+  web: CloseButtonIOS,
 })
