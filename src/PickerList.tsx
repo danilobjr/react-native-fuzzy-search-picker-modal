@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
   itemLabel: {
     width: '90%',
   },
-  // list: {
-  //   flex: 1,
-  // },
   separator: {
     borderBottomWidth,
     width: '100%',

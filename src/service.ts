@@ -11,19 +11,17 @@ const DEFAULT_FUSE_OPTION = {
   keys: ['label'],
 }
 
-let fuse: Fuse<Item>
-
 export const search = (
   filter: string = '',
   data: Item[] = [],
   options: Fuse.FuseOptions<any> = DEFAULT_FUSE_OPTION,
 ) => {
+  const fuse = new Fuse<Item>(data, options)
+
   if (data.length === 0) {
     return []
   }
-  if (!fuse) {
-    fuse = new Fuse<Item>(data, options)
-  }
+
   if (filter && filter !== '') {
     const result = fuse.search(filter)
     return result
