@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
   // ...
 })
 
+const items: Item[] = [
+  { value: 'US', label: 'United State' },
+  { value: 'BR', label: 'Brazil' },
+]
+
 export default function App() {
   const [selectedItem, setSelectedItem] = useState<Item>(null)
   const [visible, setVisible] = useState<boolean>(false)
@@ -47,16 +52,13 @@ export default function App() {
       <PickerModal
         items={items}
         modalProps={{ visible }}
-        filterProps={{ placeholder: 'Selecione o item' }}
+        filterProps={{ placeholder: 'Select a country' }}
         onClose={() => setVisible(false)}
         onOpen={() => setVisible(true)}
         onSelect={setSelectedItem}
       />
 
-      <Button
-        title={'Open modal from outside using visible props'}
-        onPress={switchVisible}
-      />
+      <Button title={'Open modal'} onPress={switchVisible} />
 
       {selectedItem !== null && (
         <Text style={styles.data}>{JSON.stringify(selectedItem, null, 0)}</Text>
@@ -68,7 +70,7 @@ export default function App() {
 
 ## Props
 
-- `filterProps?`: [CountryFilterProps](https://facebook.github.io/react-native/docs/textinput#props)
+- `filterProps?`: [TextInputProps](https://facebook.github.io/react-native/docs/textinput#props)
 - `flatListProps?`: [FlatListProps<Item>](https://facebook.github.io/react-native/docs/flatlist#props)
 - `modalProps?`: [ModalProps](https://facebook.github.io/react-native/docs/modal#props)
 - `items`: [Item](https://github.com/danilobjr/react-native-fuzzy-search-picker-modal/blob/master/src/types.ts)[]
@@ -86,10 +88,6 @@ export default function App() {
 ### Is it supported and tested both on android and iOS?
 
 YES
-
-## Contribution
-
-[@danilobjr](mailto:danilobjr@gmail.com) - Main author
 
 ## Questions
 
