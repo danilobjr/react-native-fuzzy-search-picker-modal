@@ -1,4 +1,6 @@
+import { ReactNode } from 'react'
+
 export type Item = {
-  label: string
+  label: string | ReactNode
   value: string
 }
