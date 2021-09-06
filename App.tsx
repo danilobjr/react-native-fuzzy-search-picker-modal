@@ -53,7 +53,7 @@ export default function App() {
 
         <PickerModal
           items={items}
-          modalProps={{ visible }}
+          visible={visible}
           filterProps={{ placeholder: 'Selecione o item' }}
           onClose={() => setVisible(false)}
           onOpen={() => setVisible(true)}
