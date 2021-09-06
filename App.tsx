@@ -37,10 +37,13 @@ export default function App() {
   const switchVisible = () => setVisible(!visible)
 
   const items = useMemo(() => {
-    return countries.map(country => ({
-      label: country.name,
-      value: country._id,
-    }))
+    return countries.map(
+      country =>
+        ({
+          label: country.name,
+          value: country._id,
+        } as Item),
+    )
   }, [countries])
 
   return (
